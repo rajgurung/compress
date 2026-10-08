@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="How Compress makes files smaller without uploading them, and what it can and can't handle." />
+    <meta name="theme-color" content="#f6f6f4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)" />
+    <title>How Compress works</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="wordmark" href="/">compress</a>
+        <nav class="nav" aria-label="Site">
+          <a href="/">Compress a file</a>
+          <a href="https://github.com/rajgurung/compress">Source code</a>
+        </nav>
+      </header>
+      <main class="article">
+        <div class="stack">
+          <h1>How Compress works</h1>
+          <p class="lead">Compress runs entirely in your browser. Your files are never uploaded, so we can't see them, keep them or lose them.</p>
+        </div>
+
+        <section>
+          <h2>What happens to your file</h2>
+          <ol class="steps">
+            <li><span class="mono muted">01</span><span>You pick a file. This page reads it on your device.</span></li>
+            <li><span class="mono muted">02</span><span>It's compressed in the background, still on your device. Photos are resized and re-saved. Text in PDFs stays sharp and selectable.</span></li>
+            <li><span class="mono muted">03</span><span>You download the smaller copy. Closing the tab clears everything.</span></li>
+          </ol>
+        </section>
+
+        <section id="limits">
+          <h2>Limits</h2>
+          <p class="muted">Because everything runs on your device, how big a file we can handle depends on your device.</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th scope="col">Device</th><th scope="col">Works well</th><th scope="col">May be slow or stop</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Phone</th><td class="mono">Up to 200 MB</td><td class="mono">Over 200 MB</td></tr>
+                <tr><th scope="row">Computer</th><td class="mono">Up to 1 GB</td><td class="mono">Over 1 GB</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small muted">These are guides, not hard limits. If a file is too big, you'll see a clear message. Nothing is lost, and nothing is uploaded.</p>
+        </section>
+
+        <section>
+          <h2>What won't shrink much</h2>
+          <ul>
+            <li>PDFs that are mostly text. There are no photos to make smaller.</li>
+            <li>Files that are already compressed. We keep the original rather than give you a bigger file.</li>
+            <li>Password-protected PDFs can't be opened. Remove the password first.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Privacy</h2>
+          <ul>
+            <li>No uploads. Your files stay on your device.</li>
+            <li>No accounts, no tracking, no ads.</li>
+            <li>Photos lose hidden details like location and camera.</li>
+            <li>Works offline once the page has loaded.</li>
+            <li>Open source, so anyone can check. <a href="https://github.com/rajgurung/compress">Read the code</a></li>
+          </ul>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/page.ts"></script>
+  </body>
+</html>

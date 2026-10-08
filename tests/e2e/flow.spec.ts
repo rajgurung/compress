@@ -111,3 +111,11 @@ test.describe("on a phone", () => {
     expect(width).toBeLessThanOrEqual(390);
   });
 });
+
+test("How it works explains the limits", async ({ page }) => {
+  await page.getByRole("link", { name: "Limits" }).click();
+  await expect(page.getByRole("heading", { name: "How Compress works" })).toBeVisible();
+  await expect(page.getByRole("row", { name: /Phone Up to 200 MB/ })).toBeVisible();
+  await page.getByRole("link", { name: "Compress a file" }).click();
+  await expect(page.getByRole("heading", { name: "Make PDFs and JPGs smaller." })).toBeVisible();
+});
