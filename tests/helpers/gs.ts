@@ -1,14 +1,13 @@
-// Loads the npm Ghostscript build in Node. Its own loader tries fetch() on a file path,
-// so we compile the wasm ourselves and hand it over through instantiateWasm.
+// Loads Ghostscript in Node. We compile the wasm ourselves and hand it over through
+// instantiateWasm, the same way the browser loader does.
 import { readFileSync } from "node:fs";
-import { createRequire } from "node:module";
-import type { GsFactory } from "../../src/engine/pdf";
+import type { GsFactory, GsModule } from "../../src/engine/pdf";
 
-const dir = new URL("../../node_modules/@jspawn/ghostscript-wasm/", import.meta.url);
+const dir = new URL("../../node_modules/@okathira/ghostpdl-wasm/dist/", import.meta.url);
 let compiled: Promise<WebAssembly.Module> | undefined;
 
 export const nodeGs: GsFactory = async (options) => {
-  const create = createRequire(dir)("./gs.js");
+  const { default: create } = (await import(new URL("gs.js", dir).href)) as { default: (o: object) => Promise<GsModule> };
   compiled ??= WebAssembly.compile(readFileSync(new URL("gs.wasm", dir)));
   const module = await compiled;
   return create({

@@ -32,8 +32,9 @@ minimal: one screen, one action, the result as the hero.
 - PDF: Ghostscript `pdfwrite`. Smaller and Balanced start from `/screen` and
   `/ebook`; Best uses custom settings (about 200 DPI, high JPEG quality), since
   `/printer` leaves 300 DPI scans unchanged. Tune on real scans.
-- The Ghostscript WASM (10.6 MB brotli) loads only when a PDF is dropped and
-  is cached by the service worker.
+- Ghostscript 10.06 WASM from `@okathira/ghostpdl-wasm`, built on GitHub Actions
+  with npm provenance (`npm audit signatures` verifies it). It loads only when a
+  PDF is dropped and is cached by the service worker.
 - Process one image at a time and free it before the next, to keep peak
   memory flat.
 - Never return a bigger file: if output >= input, keep the original and say
@@ -79,8 +80,8 @@ on your device."
 ## Risks and Unknowns
 - Phone speed is unmeasured. The spike ran on a laptop (a 111 MB scan took
   7.5 s). Mitigation: test on a real iPhone early.
-- The npm Ghostscript build dates from 2022. Mitigation: compile current
-  Ghostscript 10.x with Emscripten before launch.
+- We depend on a third-party Ghostscript WASM build. Mitigation: pinned version,
+  provenance checked; a Docker-based build of our own remains an option.
 - Ghostscript is AGPL: the repo is AGPL too.
 - iOS memory ceiling varies by model: soft limits plus graceful failure.
 
