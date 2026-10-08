@@ -3,6 +3,7 @@ import { zipSync } from "fflate";
 import type { Level } from "./engine/types";
 import { downloadName, JobRunner, type Job } from "./jobs";
 import { currentDevice, limitFor, takeInterrupted } from "./limits";
+import { registerServiceWorker } from "./register-sw";
 import { emptyView, failedView, listView, resultView, warningView, workingView, type ResultUrls } from "./views";
 
 const app = document.querySelector<HTMLElement>("#app")!;
@@ -249,3 +250,4 @@ document.addEventListener("drop", (event) => {
 });
 
 render();
+registerServiceWorker();

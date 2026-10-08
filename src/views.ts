@@ -43,7 +43,7 @@ export function emptyView(level: Level, limit: Limit): string {
     </div>
     <footer class="footnote">
       <strong>${icons.lock} Your files never leave this device.</strong>
-      <span>Works best with files under ${formatBytes(limit.warnAbove)} on a ${limit.device}. <a href="/how-it-works.html#limits">Limits</a></span>
+      <span>Works best with files under ${formatBytes(limit.warnAbove)} on a ${limit.device}. <a href="/how-it-works/#limits">Limits</a></span>
     </footer>`;
 }
 
@@ -61,7 +61,7 @@ export function warningView(file: { name: string; size: number }, others: number
     <div class="actions">
       <button type="button" class="btn btn-primary btn-block" data-action="continue">Try anyway</button>
       <button type="button" class="btn btn-secondary btn-block" data-action="reset">Choose another file</button>
-      <a class="btn-link center-text" href="/how-it-works.html#limits">About limits</a>
+      <a class="btn-link center-text" href="/how-it-works/#limits">About limits</a>
     </div>`;
 }
 
