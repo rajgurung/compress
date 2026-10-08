@@ -1,0 +1,11 @@
+{
+  "name": "compress-pdf-spike",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@jspawn/ghostscript-wasm": "0.0.2",
+    "@jsquash/jpeg": "1.6.0",
+    "@jsquash/resize": "2.1.1",
+    "pdf-lib": "1.17.1"
+  }
+}
