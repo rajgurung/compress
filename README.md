@@ -1,5 +1,7 @@
 # Compress
 
+Live at https://compress.rajgurung.me
+
 Make PDFs and JPGs smaller, right in your browser. Your files never leave your
 device: compression runs locally in WebAssembly, and the site makes no requests
 anywhere but itself.

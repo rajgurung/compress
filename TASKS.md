@@ -71,6 +71,6 @@ Generated from SPEC.md on 2026-10-08. Design reference: the approved mockup
   scans; tune Balanced and Best quality; set the warning thresholds from what
   we measure. — Verify: numbers recorded in `docs/tuning.md`; SPEC limits
   updated.
-- [ ] **Task 13**: Deploy. Public GitHub repo, Cloudflare Pages project,
+- [x] **Task 13**: Deploy. Public GitHub repo, Cloudflare Pages project,
   `compress.rajgurung.me` DNS, headers checked live. — Verify: the privacy test
   passes against the live site; Lighthouse run recorded.
