@@ -79,6 +79,11 @@ button {
   outline-offset: 2px;
 }
 
+/* Headings get focus on each new screen for screen readers; no ring needed. */
+[data-focus]:focus {
+  outline: none;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -147,10 +152,31 @@ button {
   padding-bottom: 48px;
 }
 
+.screen-body {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.screen-body.center {
+  flex: 1;
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 24px;
+}
+
+.screen-empty .screen-body {
+  gap: 28px;
+}
+
+.footnote {
+  margin-top: auto;
+}
+
 .actions {
   width: 100%;
   max-width: 640px;
-  margin: 0 auto;
+  margin: auto auto 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -192,6 +218,40 @@ h1 {
 .accent {
   color: var(--accent);
   font-weight: 500;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.with-icon svg {
+  flex: none;
+}
+
+.file-title {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.file-name {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.result-line {
+  font-size: 17px;
+}
+
+.desktop-only {
+  display: none;
 }
 
 .truncate {
@@ -236,8 +296,12 @@ p {
 }
 
 .btn-link {
+  align-self: center;
   min-height: 44px;
   padding: 0 8px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
   font-size: 14px;
   color: var(--muted);
   text-decoration: underline;
@@ -399,8 +463,16 @@ p {
 .row {
   display: flex;
   align-items: center;
+  gap: 4px;
+  padding-right: 8px;
+}
+
+.row-open {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
   gap: 12px;
-  width: 100%;
   min-height: 64px;
   padding: 10px 8px 10px 16px;
   border: 0;
@@ -408,11 +480,11 @@ p {
   text-align: left;
 }
 
-button.row {
+button.row-open {
   cursor: pointer;
 }
 
-.row[aria-pressed="true"] {
+button.row-open:hover {
   background: var(--selected);
 }
 
@@ -493,6 +565,15 @@ button.row {
   letter-spacing: -0.05em;
 }
 
+.big-number .unit,
+.mid-number .unit {
+  margin-left: 0.2em;
+  font-family: var(--sans);
+  font-size: 0.5em;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
 .mid-number {
   font-family: var(--mono);
   font-size: 34px;
@@ -535,9 +616,11 @@ button.row {
 
 /* Before and after */
 .compare {
+  --ratio: 4 / 3;
   position: relative;
-  aspect-ratio: 4 / 5;
-  max-height: 60dvh;
+  align-self: center;
+  aspect-ratio: var(--ratio);
+  width: min(100%, calc(44dvh * var(--ratio)));
   border-radius: 18px;
   overflow: hidden;
   background: var(--photo);
@@ -565,6 +648,14 @@ button.row {
   color: #fff;
   font-size: 12px;
   font-weight: 500;
+}
+
+.tag-left {
+  left: 12px;
+}
+
+.tag-right {
+  right: 12px;
 }
 
 .compare-line {
@@ -632,6 +723,10 @@ button.row {
 
   .screen-empty .intro {
     text-align: center;
+  }
+
+  .desktop-only {
+    display: block;
   }
 
   .drop {

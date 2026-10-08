@@ -8,6 +8,10 @@ describe("formatBytes", () => {
     expect(formatBytes(24_600_000)).toBe("24.6 MB");
     expect(formatBytes(1_250_000_000)).toBe("1.25 GB");
   });
+  it("drops trailing zeros", () => {
+    expect(formatBytes(200e6)).toBe("200 MB");
+    expect(formatBytes(1e9)).toBe("1 GB");
+  });
 });
 
 describe("percentSmaller", () => {

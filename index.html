@@ -17,9 +17,8 @@
           <a href="/how-it-works.html">How it works</a>
         </nav>
       </header>
-      <main id="app" class="screen screen-empty">
-        <h1>Make PDFs and JPGs smaller.</h1>
-      </main>
+      <main id="app" class="screen screen-empty" aria-live="polite"></main>
+      <input id="file-input" type="file" multiple accept=".pdf,.jpg,.jpeg,application/pdf,image/jpeg" class="sr-only" tabindex="-1" aria-hidden="true" />
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
