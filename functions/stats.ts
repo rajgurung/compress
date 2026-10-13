@@ -8,7 +8,7 @@ interface Env {
 }
 
 // Points before this are test runs from the day counting was added.
-const START = "2026-10-13 12:00:00";
+const START = "2026-10-13 12:05:00";
 
 export interface DayRow {
   day: string;
