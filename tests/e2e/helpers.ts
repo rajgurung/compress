@@ -10,3 +10,8 @@ export function watchOutbound(page: Page, origin: string): string[] {
   page.on("requestfailed", (r) => check(r.url()));
   return outbound;
 }
+
+/** Answers the usage count in the browser, so test runs against the live site are not counted. */
+export async function skipCounting(page: Page): Promise<void> {
+  await page.route("**/api/used", (route) => route.fulfill({ status: 204 }));
+}
