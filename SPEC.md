@@ -21,7 +21,9 @@ minimal: one screen, one action, the result as the hero.
 
 ### Out of Scope
 - Any server-side processing, uploads, accounts or storage.
-- Analytics, trackers, ads, third-party scripts.
+- Analytics, trackers, ads, third-party scripts. The one exception is a
+  same-site count of finished compressions (kind only: pdf or jpg), kept by
+  Cloudflare Analytics Engine for three months. See functions/api/used.ts.
 - Other formats (PNG, HEIC, WebP, Word). Possible later.
 - Advanced settings (DPI, colour profiles, per-page options).
 

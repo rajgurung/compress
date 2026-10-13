@@ -1,0 +1,8 @@
+name = "compress"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-01"
+
+# Counts of finished compressions; see functions/api/used.ts.
+[[analytics_engine_datasets]]
+binding = "USAGE"
+dataset = "compress_usage"

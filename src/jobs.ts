@@ -1,6 +1,7 @@
 import type { ErrorCode, FromWorker, ToWorker } from "./engine/protocol";
 import type { Kind, Level } from "./engine/types";
 import { clearRunning, markRunning } from "./limits";
+import { countUse } from "./usage";
 
 export interface Job {
   id: number;
@@ -107,6 +108,7 @@ export class JobRunner {
       this.onChange();
     } else if (message.type === "done") {
       const type = message.kind === "pdf" ? "application/pdf" : "image/jpeg";
+      countUse(message.kind);
       this.finish(job, { status: "done", kind: message.kind, kept: message.kept, result: new Blob([message.bytes as BlobPart], { type }) });
     } else {
       this.finish(job, { status: "error", error: message.code });
