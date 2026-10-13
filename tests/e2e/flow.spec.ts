@@ -26,7 +26,9 @@ test("the quality switch changes the hint", async ({ page }) => {
 });
 
 test("a JPG compresses, compares and downloads", async ({ page }) => {
+  const counted = page.waitForRequest((r) => r.url().endsWith("/api/used") && r.method() === "POST");
   await pick(page, "photo.jpg");
+  expect((await counted).postData(), "the count sends only the kind").toBe("jpg");
   await expect(page.getByText(/\d+% smaller/)).toBeVisible({ timeout: 60_000 });
   await expect(page.getByText("Hidden photo details, like location and camera, were removed.")).toBeVisible();
 
