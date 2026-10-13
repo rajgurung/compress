@@ -1,8 +1,10 @@
 import { expect, test } from "@playwright/test";
+import { skipCounting } from "./helpers";
 
 const fixture = (name: string) => new URL(`../fixtures/${name}`, import.meta.url).pathname;
 
 test("works offline after the first visit", async ({ page, context }) => {
+  await skipCounting(page);
   await page.goto("/");
   await page.evaluate(() => navigator.serviceWorker.ready);
   await page.reload(); // now controlled by the service worker

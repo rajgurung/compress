@@ -1,7 +1,7 @@
 import { readFileSync, statSync, writeFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 import { unzipSync } from "fflate";
-import { watchOutbound } from "./helpers";
+import { skipCounting, watchOutbound } from "./helpers";
 
 const fixture = (name: string) => new URL(`../fixtures/${name}`, import.meta.url).pathname;
 
@@ -12,6 +12,7 @@ async function pick(page: Page, ...names: string[]) {
 let outbound: string[] = [];
 test.beforeEach(async ({ page, baseURL }) => {
   outbound = watchOutbound(page, baseURL!);
+  await skipCounting(page);
   await page.goto("/");
 });
 test.afterEach(() => {
