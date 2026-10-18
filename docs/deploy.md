@@ -1,6 +1,6 @@
 # Deploy
 
-Live at https://compress.rajgurung.me (Cloudflare Pages project `compress`,
+Live at https://compress.zen-scale.io (Cloudflare Pages project `compress`,
 also at https://compress-el9.pages.dev).
 
 ## Deploying
@@ -17,15 +17,19 @@ token in `~/.config/deploy/credentials.env` ("Claude Code Softly") has it.
 
 ## DNS
 
-`compress.rajgurung.me` is a CNAME to `compress-el9.pages.dev`, set to
-**DNS only** on purpose. When proxied, the `rajgurung.me` zone's Web Analytics
+`compress.zen-scale.io` is a CNAME to `compress-el9.pages.dev`, set to
+**DNS only** on purpose. When proxied, the `zen-scale.io` zone's Web Analytics
 injects a beacon from `static.cloudflareinsights.com`. The CSP blocks it, but
 the attempt still breaks the "no outside requests" promise and the privacy test.
+
+The old address, `compress.rajgurung.me`, is proxied only so a Redirect Rule in
+the `rajgurung.me` zone can send it to `compress.zen-scale.io` with a 301. It
+never serves the page itself, so no beacon is injected.
 
 ## After a deploy
 
 ```sh
-BASE_URL=https://compress.rajgurung.me npm run e2e
+BASE_URL=https://compress.zen-scale.io npm run e2e
 ```
 
 Runs every browser test against the live site, including the check that no
