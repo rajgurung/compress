@@ -1,6 +1,6 @@
 # Compress
 
-Live at https://compress.rajgurung.me
+Live at https://compress.zen-scale.io
 
 Make PDFs and JPGs smaller, right in your browser. Your files never leave your
 device: compression runs locally in WebAssembly, and the site makes no requests

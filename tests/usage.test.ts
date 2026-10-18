@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { onRequestPost } from "../functions/api/used";
 
-function call(body: string, origin: string | null = "https://compress.rajgurung.me") {
+function call(body: string, origin: string | null = "https://compress.zen-scale.io") {
   const points: unknown[] = [];
   const headers = origin ? { Origin: origin } : undefined;
-  const request = new Request("https://compress.rajgurung.me/api/used", { method: "POST", body, headers });
+  const request = new Request("https://compress.zen-scale.io/api/used", { method: "POST", body, headers });
   const env = { USAGE: { writeDataPoint: (p: unknown) => void points.push(p) } };
   return onRequestPost({ request, env }).then((response) => ({ status: response.status, points }));
 }

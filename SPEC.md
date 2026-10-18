@@ -17,7 +17,7 @@ minimal: one screen, one action, the result as the hero.
 - Clear, device-aware limits messaging (see Limits).
 - "How it works" page: what happens to your file, limits, what won't shrink.
 - Light and dark mode following the device. Works well on phones.
-- Static site on Cloudflare Pages at compress.rajgurung.me. Open source.
+- Static site on Cloudflare Pages at compress.zen-scale.io. Open source.
 
 ### Out of Scope
 - Any server-side processing, uploads, accounts or storage.
