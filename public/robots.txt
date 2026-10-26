@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://compress.zen-scale.io/sitemap.xml
